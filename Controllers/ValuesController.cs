@@ -16,7 +16,7 @@ namespace WebApiDocker.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "Ankit", "Choudhary" };
+            return new string[] { "Ankit", "CHoudhary" };
         }
 
         // GET api/<ValuesController>/5

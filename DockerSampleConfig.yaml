@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapidocker-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: WebApiDocker
+  template:
+    metadata:
+      labels:
+        app: WebApiDocker
+    spec:
+      containers:
+      - name: webapidocker
+        image: example11.azurecr.io/exampleimage1repos:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: example11sn
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dockersampleconfig
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: WebApiDocker
